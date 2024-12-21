@@ -1,0 +1,11 @@
+name: ParaleloServerPlugin
+version: 1.0
+main: site.adwidudev.paraleloserverplugin.Loader
+author: adwidu
+description: A basic Minecraft plugin for Spigot 1.12.2
+api-version: 1.12
+
+commands:
+  discordSend:
+    description: An example command
+    usage: /<command>

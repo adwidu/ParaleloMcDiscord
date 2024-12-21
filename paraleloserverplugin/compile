@@ -1,0 +1,8 @@
+#!/bin/zsh
+mvn clean
+mvn package
+cp target/paraleloserverplugin-0.0.1.jar ../server/plugins/paraleloserverplugin.jar
+cd ../server
+java -jar server.jar
+cd ../paraleloserverplugin
+
