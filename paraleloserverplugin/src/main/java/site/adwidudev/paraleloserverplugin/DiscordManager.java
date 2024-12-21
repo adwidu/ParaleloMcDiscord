@@ -67,6 +67,8 @@ public class DiscordManager extends ListenerAdapter {
         event.reply("Hello World").queue();
     }
     public void StatsCommand(SlashCommandInteractionEvent event) {
+        /// TODO: Implement the stats command
+
         /// Calculate the minecraft servers tps
         event.deferReply().queue();
         EmbedBuilder builder = new EmbedBuilder();
