@@ -11,7 +11,7 @@ import site.adwidudev.paraleloserverplugin.utils.CommandQueueRunnable;
 import site.adwidudev.paraleloserverplugin.utils.TPSRunnable;
 
 public class Loader extends JavaPlugin{
-    private final String token = "OTMzMDUwNzMzMzc5NjE2ODE4.Gv6qKw.JFuJzLQre4HRLreZnr-nJQZXgHwLk-xjyPm2Sw";
+    private final String token = "<TOKEN>";
 
     public static TPSRunnable tpsrunnable = new TPSRunnable();
     JDA jda;
