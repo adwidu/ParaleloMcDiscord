@@ -16,7 +16,7 @@ public class Loader extends JavaPlugin{
     JDA jda;
     @Override
     public void onEnable() {
-        
+        /// DISCORD
         // Creates the listener as an object
         DiscordManager commandRegisterer = new DiscordManager();
 
@@ -30,5 +30,8 @@ public class Loader extends JavaPlugin{
         commandRegisterer.jda = jda;
         commandRegisterer.createCommands();
 
+
+        /// MINECRAFT 
+        
     }
 }
