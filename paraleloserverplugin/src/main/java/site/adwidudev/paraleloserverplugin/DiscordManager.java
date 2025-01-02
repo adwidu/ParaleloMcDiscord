@@ -16,6 +16,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData;
+import site.adwidudev.paraleloserverplugin.utils.CommandQueueRunnable;
 
 
 public class DiscordManager extends ListenerAdapter {
@@ -30,7 +31,7 @@ public class DiscordManager extends ListenerAdapter {
 
         /// Here you put the commands you want to create inside the DiscordCommandsInfo object
         // The constructor takes the name of the command, the description and the function that will be called when the command is executed
-        AddCommand( new DiscordCommandsInfo("cmd", "Execute a command as console in the server", new DiscordCommandsOption[] {new DiscordCommandsOption("command","Command to be executed", OptionType.STRING)}, this::ExecCommand));
+        AddCommand( new DiscordCommandsInfo("cmdexec", "Execute a command as console in the server", new DiscordCommandsOption[] {new DiscordCommandsOption("command","Command to be executed", OptionType.STRING)}, this::ExecCommand));
         AddCommand( new DiscordCommandsInfo("serverstats", "Returns how the server is going", this::StatsCommand));
     
 
@@ -57,6 +58,7 @@ public class DiscordManager extends ListenerAdapter {
                 commandsData.add(Commands.slash(obj.name, obj.description));
             }
         }
+
         jda.updateCommands().addCommands(commandsData).queue();
 
     }
@@ -115,17 +117,9 @@ public class DiscordManager extends ListenerAdapter {
     }
     public void ExecCommand(SlashCommandInteractionEvent event ) {
         
-        event.deferReply().queue();
+        CommandQueueRunnable.addCommand(event.getOption("command").getAsString());
 
         
-        if(Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), event.getOption("command").getAsString())) {
-            event.getHook().sendMessage("Command executed!").queue();   
-        }
-        else {
-            event.getHook().sendMessageEmbeds(new EmbedBuilder()
-                .addField("Command Errored", "Command: " + event.getOption("command").getAsString(),false)
-                .build()).queue();
-        }
-
+        event.reply("Command queued!").queue();
     }
 }

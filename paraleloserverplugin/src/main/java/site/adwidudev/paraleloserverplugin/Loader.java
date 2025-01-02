@@ -7,10 +7,11 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.requests.GatewayIntent;
+import site.adwidudev.paraleloserverplugin.utils.CommandQueueRunnable;
 import site.adwidudev.paraleloserverplugin.utils.TPSRunnable;
 
 public class Loader extends JavaPlugin{
-    private final String token = "damn";
+    private final String token = "OTMzMDUwNzMzMzc5NjE2ODE4.Gv6qKw.JFuJzLQre4HRLreZnr-nJQZXgHwLk-xjyPm2Sw";
 
     public static TPSRunnable tpsrunnable = new TPSRunnable();
     JDA jda;
@@ -25,7 +26,9 @@ public class Loader extends JavaPlugin{
         builder.setActivity(Activity.watching("you"));
         builder.addEventListeners(commandRegisterer);
         jda = builder.build();
-
+        
+        this.getServer().getScheduler().scheduleSyncRepeatingTask(this, new CommandQueueRunnable(), 1l, 1l);
+ 
         // Creates the command list
         commandRegisterer.jda = jda;
         commandRegisterer.createCommands();
@@ -34,4 +37,5 @@ public class Loader extends JavaPlugin{
         /// MINECRAFT 
         
     }
+    
 }

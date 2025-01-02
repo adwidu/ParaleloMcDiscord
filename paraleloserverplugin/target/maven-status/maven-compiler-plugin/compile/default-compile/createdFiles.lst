@@ -1,4 +1,5 @@
 site/adwidudev/paraleloserverplugin/DiscordCommandsInfo.class
+site/adwidudev/paraleloserverplugin/utils/CommandQueueRunnable.class
 site/adwidudev/paraleloserverplugin/DiscordManager.class
 site/adwidudev/paraleloserverplugin/Loader.class
 site/adwidudev/paraleloserverplugin/utils/TPSRunnable.class
