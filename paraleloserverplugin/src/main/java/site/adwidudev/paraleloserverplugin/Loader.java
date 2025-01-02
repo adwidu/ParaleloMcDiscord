@@ -10,7 +10,7 @@ import net.dv8tion.jda.api.requests.GatewayIntent;
 import site.adwidudev.paraleloserverplugin.utils.TPSRunnable;
 
 public class Loader extends JavaPlugin{
-    private final String token = "OTMzMDUwNzMzMzc5NjE2ODE4.GPYam1.cUycLCzagaAvp96QUFdPRK5HrIJenqg1NS33a4";
+    private final String token = "damn";
 
     public static TPSRunnable tpsrunnable = new TPSRunnable();
     JDA jda;
